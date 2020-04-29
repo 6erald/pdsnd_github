@@ -248,7 +248,7 @@ def raw_data(df, count=0):
         see_data = input('\nWould you like to continue seeing individual trip data? Enter yes or no.\n')
         if see_data.lower() == 'yes':
             for i in range(5):
-                print('\n\nTrip Data {}:\n'.format(count+i+1))
+                print('\n\nTrip Data Nr.{}:\n'.format(count+i+1))
                 for j in range(len(df.columns)):
                     actual_column = df.columns[j]
                     actual_row_value = df[actual_column].iloc[i]
