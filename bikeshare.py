@@ -245,7 +245,15 @@ def user_stats(df):
 
 
 def raw_data(df, count=0):
-    """ Displays raw data of the csv in five steps """
+    """
+    Asks user whether he wants to see raw data
+
+    Args:
+        (str) 'yes'- if want to see the data
+        (str) 'no' or type anything else - if want to quit
+    Returns:
+        (str) displays five rows of raw data of the csv and repeats asking
+    """
 
     while df[df.columns[0]].iloc[0:].count() >= count+5:
         see_data = input('\nWould you like to continue seeing individual trip data? Enter yes or no.\n')
@@ -262,15 +270,7 @@ def raw_data(df, count=0):
 
 
 def rewrite_time(hour):
-    """
-    Helperfunction that converts an 24 hour time into a 12 hour time
-
-    Args:
-        (int) hour - number between 0 and 24, otherwise returns the input
-
-    Returns:
-        (str) hour - string with the converted time with 'AM/PM' appended
-    """
+    """ Helperfunction: converts time from 24 h (int) to 12 h (str) and appends 'AM'/'PM' """
 
     if hour in {0,24}:
         hour = '12 AM'
