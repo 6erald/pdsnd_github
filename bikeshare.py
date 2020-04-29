@@ -100,8 +100,7 @@ def time_stats(df):
     # display the most common month
     if len(df['Start Time'].dt.month.value_counts()) > 1:
         month_values = df['Start Time'].dt.month.value_counts()
-        month_common_num = month_values.index[0]
-        month_common_count = month_values.iloc[0]
+        month_common_num, month_common_count = month_values.index[0], month_values.iloc[0]
         for month, num in MONTH_DATA.items():
             if num == month_common_num:
                 month_common_name = month
@@ -112,8 +111,7 @@ def time_stats(df):
     # display the most common day of week
     if len(df['Start Time'].dt.dayofweek.value_counts()) > 1:
         day_values = df['Start Time'].dt.dayofweek.value_counts()
-        day_common_num = day_values.index[0]
-        day_common_count = day_values.iloc[0]
+        day_common_num, day_common_count = day_values.index[0], day_values.iloc[0]
         for day, num in DAY_DATA.items():
             if num == day_common_num:
                 day_common_name = day
@@ -124,8 +122,7 @@ def time_stats(df):
     # display the most common start hour
     if len(df['Start Time'].dt.hour.value_counts()) > 0:
         hour_values = df['Start Time'].dt.hour.value_counts()
-        hour_common = hour_values.index[0]
-        hour_common_count = hour_values.iloc[0]
+        hour_common, hour_common_count = hour_values.index[0], hour_values.iloc[0]
         hour_common = rewrite_time(hour_common) # helperfunction
         print('\nThe most common start hour is: \n{}'.format(hour_common))
         print('\nIt has a total number of bike rentals: \n{}\n'.format(hour_common_count))
